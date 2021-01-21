@@ -36,7 +36,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
   codigo_agente = this.state.codigo_agente
 
 
-   console.log("codigo agente: ",  codigo_agente )
+   //console.log("codigo agente: ",  codigo_agente )
 
   
   if (name==""){
@@ -47,7 +47,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
          
     } else {
      
-      screen = 'Clientes'     
+      screen = 'Registro nombre'     
       
     }
 
@@ -85,7 +85,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                     
                <TextInput
                 style={styles.nameInput2}
-                label="Ingresa código agente"
+                label="Código agente"
                 onChangeText={this.agentCode}
                 value={this.state.Codigo_agente}
                 returnKeyType={ 'done' }
@@ -99,7 +99,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
 
                             disabled={false} 
                                                                                   
-                            onPress={() => this.props.navigation.navigate(screen)}
+                            onPress={() => this.props.navigation.navigate("Clientes")}
                               > 
                            
                              
@@ -137,9 +137,9 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
       console.log("Fire.getUid(): ", Fire.getUid())
     
     }
-    ) */
+    ) 
 
-    const ref = db.ref('/Instaladores/Instalador1/');
+    const ref = db.ref('/Agentes_comerciales/Nombre/');
 
     this.listener = ref.on("value", snapshot => {
 
@@ -152,12 +152,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
   }
   )
 
-
-
-
-
-
-
+*/
 
 
     }
@@ -183,14 +178,14 @@ const styles = StyleSheet.create({
   },
 
   nameInput2: {
-    height:hp('5.2%'),
+    height:hp('8%'),
     marginLeft: hp('0%'),
     marginTop:hp('3%'),
     marginBottom:hp('5%'),
-    width:wp('60%'),
+    width:wp('65%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
-    fontSize:hp('2%'),
+    fontSize:hp('2.5%'),
     fontWeight: 'bold',
     borderRadius: 2,
    
