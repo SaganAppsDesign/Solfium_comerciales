@@ -12,9 +12,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import logo from '../../assets/logo.png'; 
 import {db} from '../../fire';
 import fondo from '../../assets/fondo.jpg'; 
-import {fecha} from './calendario';
-import {codigo_agente} from './splash_screen'
 
+import {codigo_agente} from './splash_screen'
 
 
 
@@ -26,58 +25,16 @@ export class Usuarios extends React.Component {
         super(props)
         this.state = {
           list: [],
-          nombre:''
+          nombre:''      
                  
         }
         
       }
 
 
-      goToChat(key) {
-        global.idCliente = key;
-        this.props.navigation.navigate('Chat');
-      }
-
-
-
-
-      cita(key) {
-        if (this.state.clickCita==true){
-          db.ref('/Usuarios/' + key).update({
-            cita: fecha,
-            nombre_instalador: this.state.nombre
-             })
-  
-    
-             this.setState({
-               clickCita: false
-  
-          })
-  
-        } else{
-  
-          db.ref('/Usuarios/' + key).update({
-     
-            cita: "",
-            nombre_instalador: this.state.nombre
-   
-             })
-              this.setState({
-              clickCita: true
-  
-          })
-   
-        }
-        
-    
-       }
-
- 
-
   render() {
 
-     
-    //console.log("nuevoMensaje RENDER", this.state.nuevoMensaje)
+
     return (
 
       
@@ -126,12 +83,11 @@ export class Usuarios extends React.Component {
                         <FlatList style={{height:hp('100%'), marginBottom: hp('15%') }}
                         
                               data={this.state.list} 
-                              
+                              initialNumToRender={100}
                               renderItem={({ item }) => {
-
-                                //console.log("codigo_agente dentro de flatlist", codigo_agente)
-                                //console.log("codigo_agente item dentro de flatlist", item.codigo_agente)
-                              
+                                console.log(item)
+                                
+                                                             
                                if (codigo_agente == item.codigo_agente) {
                                 
                                 return (
@@ -142,16 +98,16 @@ export class Usuarios extends React.Component {
                                 <View style={{ backgroundColor:'#ECA831',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
-                                <View style={{ backgroundColor:'white',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
-                                    <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>Código Agente: {item.codigo_agente}</Text> 
+                                <View style={{ backgroundColor:'#9ECAFF',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
+                                    <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>Estado del proceso</Text> 
                                 </View> 
                                
-                                             
+                                          
 
-                                <View style={{height:hp('5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:1.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                                <View style={{height:hp('9%'), width:wp('100%'), paddingLeft:hp('2%'), paddingRight:hp('2%'), marginBottom:hp('0%'), flex:1.7, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                                       <Text>
-                                          <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Estado del proceso: </Text> 
-                                          <Text style={{color:'green', fontSize:hp('1.8%'), fontWeight:'bold'}}> {item.estado_cliente} </Text> 
+                                        
+                                          <Text style={{color:'green', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente} </Text> 
                                     </Text> 
                                 </View>
                                 
@@ -159,7 +115,10 @@ export class Usuarios extends React.Component {
                               </Card> 
                                   )  
 
-                              }}
+                              }
+                            
+                             
+                            }
 
                    
                     } />
@@ -190,7 +149,7 @@ export class Usuarios extends React.Component {
           
                   key: child.key,
                   name:child.val().name,
-                  codigo_agente:child.val().Codigo_agente,
+                  codigo_agente:child.val().codigo_agente,
                   estado_cliente:child.val().estado_cliente
          
           

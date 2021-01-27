@@ -39,7 +39,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
    //console.log("codigo agente: ",  codigo_agente )
 
   
-  if (name==""){
+  if (name){
 
     
      screen = 'Home'
@@ -70,12 +70,12 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                 
                 { /* LOGO*/}
   
-                <View style={{alignItems:'center', justifyContent:'center',flex:4}}>  
+                <View style={{alignItems:'center', justifyContent:'center',flex:1}}>  
                 
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, height:hp('9%'), marginTop:hp('30%')}}
+                  style={{aspectRatio:4.5, height:hp('9%'), marginTop:hp('10%')}}
                   
                   >    
                 </Image>  
@@ -87,7 +87,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                 style={styles.nameInput2}
                 label="Código agente"
                 onChangeText={this.agentCode}
-                value={this.state.Codigo_agente}
+                value={this.state.codigo_agente}
                 returnKeyType={ 'done' }
                 theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                                 
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   nameInput: {
     height: 70,
     marginLeft: hp('0%'),
-    marginTop:hp('5%'),
+    marginTop:hp('0%'),
     marginBottom:hp('5%'),
     width:wp('80%'),
     paddingHorizontal: wp('5%'),
