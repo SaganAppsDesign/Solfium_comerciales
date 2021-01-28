@@ -111,7 +111,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                       style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
                               color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
                     
-                      onPress={() => this.props.navigation.navigate("Video informativo")}>Instrucciones de instalación de la APP
+                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP")}>Instrucciones de instalación de la APP
                       
                   </Text>
                   
@@ -180,8 +180,8 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                                //console.log(item)
                                
                                                             
-                             // if (codigo_agente == item.codigo_agente) {
-                             if (true) {
+                             if ((id).slice(0, 6) == item.codigo_agente) {
+                            
                                
                                return (
 
