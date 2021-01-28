@@ -35,8 +35,8 @@ pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsin
 pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
 pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-
 pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+pod 'XCDYouTubeKit', '~> 2.8'
 
 
 

@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import {SplashScreen } from './src/Componentes/splash_screen'; 
-import { PantallaInicial } from './src/Componentes/pantalla_inicial'; 
 import { Usuarios } from './src/Componentes/usuarios'; 
-import { RegistroNombre } from './src/Componentes/registro_nombre';
+import { VideoInfo } from './src/Componentes/video_informativo';
 import React from 'react';
+import Fire, {db} from './fire';
 
 
 
@@ -19,6 +19,8 @@ class MyStack extends Component {
  
  
   render(){ 
+
+    console.log("Fire.getUid() app.js",Fire.getUid())
 
   return (
     <Stack.Navigator
@@ -35,8 +37,7 @@ class MyStack extends Component {
       }}>
 
       <Stack.Screen  options={{headerShown: false}} name="Atrás" component={SplashScreen}/>
-      <Stack.Screen  name="Registro nombre" component={RegistroNombre}  />
-      <Stack.Screen  name="Home" component={PantallaInicial}  />
+      <Stack.Screen  name="Video informativo" component={VideoInfo}  />
       <Stack.Screen name="Clientes" component={Usuarios}  />
   
 

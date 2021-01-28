@@ -11,12 +11,15 @@ const firebaseConfig = {
 
 };
 
-export var nombreFire
+
+
+
 
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
+export var uid
 
-  
+
 
 
 class Fire {
@@ -27,9 +30,7 @@ class Fire {
      
   constructor ()  {
 
-
-    //Nuevo código
-     
+       
    //Nuevo código
    const ref = db.ref('Instaladores/Instalador1/');
  
@@ -46,7 +47,7 @@ class Fire {
        
       // })
        
-        console.log("NAME FIREBASE", nombreFire)
+        //console.log("NAME FIREBASE", nombreFire)
 
      })
 
@@ -60,6 +61,7 @@ class Fire {
         if (user){
           this.setUid(user.uid)
           uid = user.uid
+          
                       
         } else {
 

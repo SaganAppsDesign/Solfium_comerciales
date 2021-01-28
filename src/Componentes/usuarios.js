@@ -32,7 +32,19 @@ export class Usuarios extends React.Component {
       }
 
 
+  
+
+
   render() {
+
+    db.ref('Agentes_comerciales/' +  Fire.getUid()).update({
+    
+    
+      name: "Agente comercial",
+ 
+     
+      
+      })
 
 
     return (
@@ -156,18 +168,10 @@ export class Usuarios extends React.Component {
         })
       })
 
-
-
-      
-     
-
-
    this.setState({list:li})
-  
-  
+    
   })
-  
-      
+       
 
  }
 
