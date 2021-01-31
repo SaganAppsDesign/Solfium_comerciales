@@ -44,8 +44,8 @@ recuperarNumeros (id){
   }
 
   //console.log(" num.length", num.length);
-     if(num.length < 4)
-      num = num + "0"
+  if(num.length < 4)
+  num = num + "0"
 
   return num
 
@@ -99,23 +99,36 @@ recuperarNumeros (id){
                
                 </View> 
                
-                { /* Instrucciones de instalación de la APP*/}
+                { /* Instrucciones de instalación de la APP IOS*/}
 
                  <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('3%')}}>
                   <Text 
                       style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
                               color: 'black', marginBottom: hp('9%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
                     
-                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP")}>Instrucciones de instalación de la APP
+                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP IOS")}>Instrucciones de instalación de la APP IOS
                       
                   </Text>
                   
-                </View>                                        
+                </View>   
+
+
+                { /* Instrucciones de instalación de la APP IOS*/}
+
+                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('3%')}}>
+                  <Text 
+                      style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
+                              color: 'black', marginBottom: hp('9%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
+                    
+                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP Android")}>Instrucciones de instalación de la APP Android
+                      
+                  </Text>
+                  
+                </View>   
+
                           
                 <View style={{alignItems: 'center', flexDirection:'column',flex:8, width:wp('100%'), height:hp('100%')}}>
-
-
-                
+               
                 { /* LOGO*/}
   
                 <View style={{alignItems:'center', justifyContent:'center',flex:1, marginTop:hp('1.7%')}}>  
@@ -123,7 +136,7 @@ recuperarNumeros (id){
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, height:hp('5%'), marginTop:hp('0%')}}
+                  style={{aspectRatio:6, height:hp('5%'), marginTop:hp('0%')}}
                   
                   >    
                 </Image>  

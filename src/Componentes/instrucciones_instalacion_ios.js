@@ -1,14 +1,15 @@
-import { StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
 import * as React from 'react';
 import 'react-native-gesture-handler';
 //import VideoPlayer from 'react-native-video-controls';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import backBtn from '../../assets/backBtn.png'; 
+import { Paragraph } from 'react-native-paper';
 
 
 
 
-export class InstruccionesInstal extends React.Component {
+export class InstruccionesInstalIOS extends React.Component {
 
  
 
@@ -20,28 +21,22 @@ export class InstruccionesInstal extends React.Component {
   <View style={styles.container}>	
   
    <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
-  
-   {/*  <VideoPlayer 
-    
-    source={require ('../assets/video.mp4')} 
-    style={styles.backgroundVideo}
-    shouldPlay
-    navigator={this.props.navigator}
-    onBack={() => this.props.navigation.navigate('Ingresar Consumo')}
-    //toggleResizeModeOnFullscreen 
-    />
-     */}
-    
-    {/* 
-    < Video
-    source={require ('../assets/video.mp4')}
-    shouldPlay
-    useNativeControls 
-    
-    style={styles.backgroundVideo} 
-    /> */}
-    </View>
-{/* header */}              
+  <Paragraph selectable={true} selectionColor='orange'>
+  Instrucciones para Iphone temporales durante la fase de lanzamiento:
+
+1.- Descarga e instala la APP TestFlight en tu Iphone: https://apps.apple.com/es/app/testflight/id899247664 (David, pon por favor el icono de la app testflight para que no haya dudas)
+
+2.- Envía al correo "antonio.cabrera@soologic.com" el email asociado a tu Apple ID que puedes encontrar en Configuración de tu Iphone 
+
+3.- Abrir el enlace que te llegará por correo electrónico y comenzará la descarga
+
+4.- Ejecutar la aplicación Solfium, bien directamente o desde TestFlight (David, pon el icono de la app de Solfium cliente)
+
+Felicidades por ser parte de este lanzamiento único y exclusivo, muy pronto la nueva versión estará en el App Store simplificando todo este proceso y al alcance de todos..
+
+  </Paragraph>
+   </View>
+    {/* header */}              
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.6,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
                          
@@ -90,7 +85,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#000',
+  	backgroundColor: '#fff',
     marginTop: "0%",
     alignItems:'center'},
 

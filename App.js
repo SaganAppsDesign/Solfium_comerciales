@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import {SplashScreen } from './src/Componentes/splash_screen'; 
 import { VideoInfo } from './src/Componentes/video_informativo';
-import { InstruccionesInstal } from './src/Componentes/instrucciones_instalacion';
+import { InstruccionesInstalIOS } from './src/Componentes/instrucciones_instalacion_ios';
+import { InstruccionesInstalAndroid } from './src/Componentes/instrucciones_instalacion_android';
 import React from 'react';
 import Fire, {db} from './fire';
 
@@ -40,7 +41,8 @@ class MyStack extends Component {
 
       <Stack.Screen  options={{headerShown: false}} name="Atrás" component={SplashScreen}/>
       <Stack.Screen  name="Video informativo" component={VideoInfo}  />
-      <Stack.Screen  name="Instrucciones instalación APP" component={InstruccionesInstal}  />
+      <Stack.Screen  name="Instrucciones instalación APP IOS" component={InstruccionesInstalIOS}/>
+      <Stack.Screen  name="Instrucciones instalación APP Android" component={InstruccionesInstalAndroid}  />
      
   
 
