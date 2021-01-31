@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
+import {Text, View, Image, StyleSheet, FlatList} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
 import logo from '../../assets/logo_blanco.png'; 
@@ -10,9 +10,7 @@ import { Card } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
-var codigo_agente, opacity, enabled, usuario, id, codigoFinal, codigo, id
-var codigoFinal2
-var codigoFinalCheck
+var opacity, id, id
 var num
 
 export class SplashScreen extends React.Component {
@@ -45,7 +43,7 @@ recuperarNumeros (id){
  
   }
 
-  console.log(" num.length", num.length);
+  //console.log(" num.length", num.length);
      if(num.length < 4)
       num = num + "0"
 
@@ -57,7 +55,7 @@ recuperarNumeros (id){
  render() {
 
   id = Fire.getUid() 
-  console.log(id)
+  // console.log(id)
   num = this.recuperarNumeros (id)
 
   
@@ -229,36 +227,4 @@ componentDidMount(){
 }
 
 
-const styles = StyleSheet.create({
- 
-  nameInput: {
-    opacity:opacity,
-    height: hp('7%'),
-    marginLeft: hp('0%'),
-    marginTop:hp('5%'),
-    marginBottom:hp('5%'),
-    width:wp('60%'),
-    paddingHorizontal: wp('5%'),
-    backgroundColor: 'white',
-    fontSize:hp('2%'),
-    fontWeight: 'bold',
-    borderRadius: 2,
-   
-   
-  },
 
-     buttonText: {
-      opacity:opacity,
-      fontSize: hp('2%'),
-      fontWeight:'bold',
-      //backgroundColor: '#DD650C',
-      width:wp('100%'),
-      height:hp('100%'),
-      borderRadius: 20,
-      textAlign:'center',
-      padding:hp('2%'),
-      marginBottom:hp('90%'),
-      textAlignVertical:'center'
-   
-    },
-});
