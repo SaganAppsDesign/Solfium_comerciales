@@ -16,11 +16,13 @@ console.disableYellowBox = true;
 
 
 class MyStack extends Component {
- 
- 
+
+
   render(){ 
 
-    console.log("Fire.getUid() app.js",Fire.getUid())
+     
+
+   // console.log("Fire.getUid() app.js",Fire.getUid())
 
   return (
     <Stack.Navigator

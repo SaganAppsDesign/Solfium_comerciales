@@ -5,68 +5,63 @@ import fondo from '../../assets/fondo2.jpg';
 import logo from '../../assets/logo_blanco.png'; 
 import Fire, {db} from '../../fire';
 import { Card } from 'native-base';
-import { TextInput } from 'react-native-paper'
 
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
-var screen
-export var codigo_agente
-var id
-
-console.log("Fire.getUid() fuera del export",id)
+var codigo_agente, opacity, enabled, usuario, id, codigoFinal, codigo, id
+var codigoFinal2
+var codigoFinalCheck
+var num
 
 export class SplashScreen extends React.Component {
 
-  state = {
+  constructor(props){  
+    super(props);  
+    this.state = {  
+      usuario:'',
+      codigoFinalState:'',
+      list: [],
+      codigo:'Loading...',
+      snapshot:""
+      }  
 
-    name: '',
-    codigo_agente:'',
-    id:''
-    
-   
+       
   }
 
-agentCode = codigo_agente => this.setState({ codigo_agente});
-  
-  
 
+
+recuperarNumeros (id){
+
+  var num = ""
+
+  for (let step = 0; step < 28; step++) {
+    
+     if (id[step] == "0" || id[step]== "1" || id[step]== "2" || id[step]== "3" || id[step]== "4" || id[step]== "5" || id[step]== "6" || id[step]== "7" || id[step]== "8"
+     || id[step]== "9")
+         num = num +  id[step]
+     
+ 
+  }
+
+  console.log(" num.length", num.length);
+     if(num.length < 4)
+      num = num + "0"
+
+  return num
+
+}
+
+ 
  render() {
 
-
-  db.ref('Agentes_comerciales/' +  Fire.getUid()).update({
-    
-    
-    id:Fire.getUid()
-   
-    
-    })
-
-  var id = Fire.getUid() 
-    
-  //console.log("Fire.getUid() estado render", this.state.id)
-  //console.log("Fire.getUid() variable id render", id)
-  var name = this.state.name
-  codigo_agente = this.state.codigo_agente
-
-
-   //console.log("codigo agente: ",  codigo_agente )
+  id = Fire.getUid() 
+  console.log(id)
+  num = this.recuperarNumeros (id)
 
   
-  if (name){
-
-    
-     screen = 'Home'
-    
-         
-    } else {
-     
-      screen = 'Registro nombre'     
-      
-    }
-
-
+   
   return (
 
 
@@ -83,7 +78,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('5%')}}>
                   <Text 
                       style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
-                              color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
+                              color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('1%'), padding:hp('1%')}} 
                     
                       onPress={() => this.props.navigation.navigate("Video informativo")}>¿Quieres saber cómo funciona Solfium? Click aquí
                       
@@ -93,23 +88,25 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
 
                 { /* CÓDIGO AGENTE*/}
 
-                  <View  style={{justifyContent:'center',width:wp('100%'),borderRadius:10, alignItems:'center', flex:0.8, marginTop:hp('1.5%'), alignContent:'center', textAlignVertical:'center'}}>
+                  <View  style={{opacity:opacity, justifyContent:'center',width:wp('100%'),borderRadius:10, alignItems:'center', flex:0.8, marginTop:hp('3%'), alignContent:'center', textAlignVertical:'center'}}>
+                  
+                 
                   <Text 
                       style={{justifyContent:'center',textAlign:'center', fontWeight:'bold', textAlignVertical:'center', alignContent:'center', fontSize:hp('4%'), width:wp('70%'), height: hp('8%'), 
                               color: 'black',  marginBottom: hp('0%'),  marginTop:hp('0%'), paddingTop:hp('1.8%'),backgroundColor:'white'}} 
                     
-                    >{(id).slice(0, 6)}
+                    >{num.slice(0,4)}
                       
                   </Text>
-                  
+               
                 </View> 
-
+               
                 { /* Instrucciones de instalación de la APP*/}
 
-                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('2%')}}>
+                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('3%')}}>
                   <Text 
                       style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
-                              color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
+                              color: 'black', marginBottom: hp('9%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
                     
                       onPress={() => this.props.navigation.navigate("Instrucciones instalación APP")}>Instrucciones de instalación de la APP
                       
@@ -123,7 +120,7 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                 
                 { /* LOGO*/}
   
-                <View style={{alignItems:'center', justifyContent:'center',flex:1}}>  
+                <View style={{alignItems:'center', justifyContent:'center',flex:1, marginTop:hp('1.7%')}}>  
                 
                 <Image 
                   
@@ -135,37 +132,8 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
       
                </View> 
 
-               { /*     
-               <TextInput
-                style={styles.nameInput2}
-                label="Código agente"
-                onChangeText={this.agentCode}
-                value={this.state.codigo_agente}
-                returnKeyType={ 'done' }
-                theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                                
-              />
-                    
-                
-                <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('20%')}}>
-                      <TouchableOpacity 
-
-                            disabled={false} 
-                                                                                  
-                            onPress={() => this.props.navigation.navigate("Clientes")}
-                              > 
-                           
-                             
-                              <Text
-                                    
-                                    style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}
-                                    
-                                    > Entra a panel de Clientes   </Text>
-
-                       </TouchableOpacity>
-                  </View>
-                 */}    
-                    { /* Lista de clientes*/}
+             
+             { /* Lista de clientes*/}
 
                     <View style={{flex:10, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('1%'),
                           
@@ -177,12 +145,11 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
                              data={this.state.list} 
                              initialNumToRender={100}
                              renderItem={({ item }) => {
-                               //console.log(item)
-                               
+                             
+                             console.log("num dentro flatlist", num)  
                                                             
-                             if ((id).slice(0, 6) == item.codigo_agente) {
-                            
-                               
+                             if (num.slice(0,4) == item.codigo_agente) {
+                         
                                return (
 
                              <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('15%'),width:wp('84%'), flex:1}}> 
@@ -231,13 +198,10 @@ agentCode = codigo_agente => this.setState({ codigo_agente});
 
 componentDidMount(){
 
-  this.setState({id:Fire.getUid()})
-  //this.listener = Fire.getUid()
-  //console.log("Fire.getUid() did mount estado", this.state.id)
-  //console.log("Fire.getUid() did mount a pelo", Fire.getUid())
-     
-    
-  db.ref('/Usuarios/').on('value', (snapshot) =>{
+//Recuperar datos del cliente
+  const ref2 = db.ref('/Usuarios/')
+  
+   ref2.on('value', (snapshot) =>{
     var li = []
                 
       snapshot.forEach((child)=>{
@@ -246,8 +210,8 @@ componentDidMount(){
         
                 key: child.key,
                 name:child.val().name,
-                codigo_agente:child.val().codigo_agente,
-                estado_cliente:child.val().estado_cliente
+                estado_cliente:child.val().estado_cliente,
+                codigo_agente:child.val().codigo_agente 
        
         
       })
@@ -257,16 +221,7 @@ componentDidMount(){
   
 })
 
-const ref = db.ref('/Agentes_comerciales/' +  Fire.getUid());
 
-this.listener = ref.on("value", snapshot => {
-
-this.setState({id: snapshot.child("id").val() || '' ,
-                })    
-
-console.log("Fire.getUid() did mount id", this.state.id)
-}
-)
      
 
 }
@@ -277,11 +232,12 @@ console.log("Fire.getUid() did mount id", this.state.id)
 const styles = StyleSheet.create({
  
   nameInput: {
-    height: 70,
+    opacity:opacity,
+    height: hp('7%'),
     marginLeft: hp('0%'),
-    marginTop:hp('0%'),
+    marginTop:hp('5%'),
     marginBottom:hp('5%'),
-    width:wp('80%'),
+    width:wp('60%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: 'white',
     fontSize:hp('2%'),
@@ -291,33 +247,18 @@ const styles = StyleSheet.create({
    
   },
 
-  nameInput2: {
-    height:hp('8%'),
-    marginLeft: hp('0%'),
-    marginTop:hp('3%'),
-    marginBottom:hp('5%'),
-    width:wp('65%'),
-    paddingHorizontal: wp('5%'),
-    backgroundColor: 'white',
-    fontSize:hp('2.5%'),
-    fontWeight: 'bold',
-    borderRadius: 2,
+     buttonText: {
+      opacity:opacity,
+      fontSize: hp('2%'),
+      fontWeight:'bold',
+      //backgroundColor: '#DD650C',
+      width:wp('100%'),
+      height:hp('100%'),
+      borderRadius: 20,
+      textAlign:'center',
+      padding:hp('2%'),
+      marginBottom:hp('90%'),
+      textAlignVertical:'center'
    
-   
-  },
- 
-
-  buttonText: {
-// marginLeft: hp('30%'),
-    marginTop:hp('2%'),
-    fontSize: hp('2%'),
-    marginBottom:hp('0%'),
-    fontWeight:'bold',
-    
-    width:wp('25%'),
-    height:hp('4%'),
-    
-    textAlign:'center'
-    
-  },
+    },
 });
