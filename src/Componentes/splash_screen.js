@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {Text, View, Image, StyleSheet, FlatList} from 'react-native';
+import {Text, View, Image, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
+import ios from '../../assets/ios.png'; 
+import android from '../../assets/android.png'; 
 import logo from '../../assets/logo_blanco.png'; 
 import Fire, {db} from '../../fire';
 import { Card } from 'native-base';
@@ -99,31 +101,51 @@ recuperarNumeros (id){
                
                 </View> 
                
+               
+                <View  style={{borderRadius:10, alignItems:'center', flex:1, flexDirection:"row",  marginTop:hp('2%')}}>
                 { /* Instrucciones de instalación de la APP IOS*/}
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                             <TouchableOpacity 
+                                                                                          
+                                onPress={() => this.props.navigation.navigate("Instalación IOS")}
+                               > 
+                                                     
+                               <Image 
+                                
+                                source={ios}
+                                style={{aspectRatio:1, height:hp('6%')}}
+                                
+                                >    
+                                </Image>
 
-                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('3%')}}>
-                  <Text 
-                      style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
-                              color: 'black', marginBottom: hp('9%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
-                    
-                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP IOS")}>Instrucciones de instalación de la APP IOS
+                                      
+                                              
+                            </TouchableOpacity> 
+        
+                         </View>
+
+                { /* Instrucciones de instalación de la APP Android*/}
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                    <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate("Instalación Android")}
+                      > 
+                                            
+                      <Image 
                       
-                  </Text>
-                  
-                </View>   
-
-
-                { /* Instrucciones de instalación de la APP IOS*/}
-
-                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('3%')}}>
-                  <Text 
-                      style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
-                              color: 'black', marginBottom: hp('9%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
-                    
-                      onPress={() => this.props.navigation.navigate("Instrucciones instalación APP Android")}>Instrucciones de instalación de la APP Android
+                      source={android}
+                      style={{aspectRatio:1.2, height:hp('6%')}}
                       
-                  </Text>
-                  
+                      >    
+                      </Image>
+
+                            
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+
+             
                 </View>   
 
                           
@@ -131,12 +153,12 @@ recuperarNumeros (id){
                
                 { /* LOGO*/}
   
-                <View style={{alignItems:'center', justifyContent:'center',flex:1, marginTop:hp('1.7%')}}>  
+                <View style={{alignItems:'center', justifyContent:'center',flex:2, marginTop:hp('0%')}}>  
                 
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:6, height:hp('5%'), marginTop:hp('0%')}}
+                  style={{aspectRatio:4.5, height:hp('9%'), marginTop:hp('0%')}}
                   
                   >    
                 </Image>  

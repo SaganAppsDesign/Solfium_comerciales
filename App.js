@@ -41,8 +41,8 @@ class MyStack extends Component {
 
       <Stack.Screen  options={{headerShown: false}} name="Atrás" component={SplashScreen}/>
       <Stack.Screen  name="Video informativo" component={VideoInfo}  />
-      <Stack.Screen  name="Instrucciones instalación APP IOS" component={InstruccionesInstalIOS}/>
-      <Stack.Screen  name="Instrucciones instalación APP Android" component={InstruccionesInstalAndroid}  />
+      <Stack.Screen  name="Instalación IOS" component={InstruccionesInstalIOS}/>
+      <Stack.Screen  name="Instalación Android" component={InstruccionesInstalAndroid}  />
      
   
 
