@@ -174,34 +174,66 @@ recuperarNumeros (id){
                      
                            
                        <FlatList style={{height:hp('100%'), marginBottom: hp('5%') }}
-                       
+                             ItemSeparatorComponent={
+                              Platform.OS !== 'android' &&
+                              (({ highlighted }) => (
+                                <View
+                                  style={[
+                                    color='black',
+                                    highlighted && { marginLeft: 0 }
+                                  ]}
+                                />
+                              ))
+                            }
                              data={this.state.list} 
                              initialNumToRender={100}
-                             renderItem={({ item }) => {
                              
-                             console.log("num dentro flatlist", num)  
-                                                            
+                             renderItem={({item, index, separators }) => {
+
+                              console.log("item", item.estado_cliente1)
+                              console.log("key", item.key)
+                              console.log("index", item.index)
+                             
+                                                                                         
                              if (num.slice(0,4) == item.codigo_agente) {
+
                          
                                return (
 
-                             <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('15%'),width:wp('84%'), flex:1}}> 
+                             <Card style={{alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('25%'),width:wp('84%'), flex:1}}> 
                       
                                                   
                                <View style={{ backgroundColor:'#ECA831',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                    <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
-                               </View>    
+                               </View>  
                                <View style={{ backgroundColor:'#9ECAFF',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
+                               <TouchableOpacity 
+                                    onShowUnderlay={separators.highlight}                                            
+                                    onPress={() => this.props.navigation.navigate("Estados")}
+                                    > 
+                               
                                    <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>Estado del proceso</Text> 
-                               </View> 
-                              
-                                         
+                            
+                               </TouchableOpacity> 
+                               </View>     
 
-                               <View style={{height:hp('9%'), width:wp('100%'), paddingLeft:hp('2%'), paddingRight:hp('2%'), marginBottom:hp('0%'), flex:1.7, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
-                                     <Text>
+                               <View style={{textAlign:'left',height:hp('30%'), width:wp('100%'), paddingLeft:hp('4%'), paddingRight:hp('4%'), marginBottom:hp('0%'), flex:5, borderColor:'grey', borderWidth:1}}> 
+                                
                                        
-                                         <Text style={{color:'green', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente} </Text> 
-                                   </Text> 
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente1} </Text> 
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente2} </Text> 
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente3} </Text>
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View> 
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente4} </Text> 
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente5} </Text> 
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente6} </Text> 
+                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
+                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente7} </Text> 
+                                
                                </View>
                                
                              
@@ -209,12 +241,12 @@ recuperarNumeros (id){
                                  )  
 
                              }
-                           
+                            }
                             
                            }
 
                   
-                   } />
+                    />
 
            
              </View>
@@ -243,7 +275,13 @@ componentDidMount(){
         
                 key: child.key,
                 name:child.val().name,
-                estado_cliente:child.val().estado_cliente,
+                estado_cliente1:child.val().estado_cliente1,
+                estado_cliente2:child.val().estado_cliente2,
+                estado_cliente3:child.val().estado_cliente3,
+                estado_cliente4:child.val().estado_cliente4,
+                estado_cliente5:child.val().estado_cliente5,
+                estado_cliente6:child.val().estado_cliente6,
+                estado_cliente7:child.val().estado_cliente7,
                 codigo_agente:child.val().codigo_agente 
        
         

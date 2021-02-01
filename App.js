@@ -7,6 +7,7 @@ import {SplashScreen } from './src/Componentes/splash_screen';
 import { VideoInfo } from './src/Componentes/video_informativo';
 import { InstruccionesInstalIOS } from './src/Componentes/instrucciones_instalacion_ios';
 import { InstruccionesInstalAndroid } from './src/Componentes/instrucciones_instalacion_android';
+import { Estados } from './src/Componentes/estados';
 import React from 'react';
 import Fire, {db} from './fire';
 
@@ -43,6 +44,7 @@ class MyStack extends Component {
       <Stack.Screen  name="Video informativo" component={VideoInfo}  />
       <Stack.Screen  name="Instalación IOS" component={InstruccionesInstalIOS}/>
       <Stack.Screen  name="Instalación Android" component={InstruccionesInstalAndroid}  />
+      <Stack.Screen  name="Estados" component={Estados}  />
      
   
 
