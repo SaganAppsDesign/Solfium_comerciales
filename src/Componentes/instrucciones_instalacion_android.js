@@ -54,7 +54,7 @@ export class InstruccionesInstalAndroid extends React.Component {
                   textAlign: 'left',
                   height: hp('8%'),
                   textAlign: 'left'
-                  }} h1>2.- Se le remitirá un archivo APK vía email para su instalación en Android.{"\n"} {"\n"}</Text>
+                  }} h1>2.- Se enviará un archivo APK vía email para su instalación en Android.{"\n"} {"\n"}</Text>
    
       
       <View style={{alignItems:'center', justifyContent:'center'}}>  
