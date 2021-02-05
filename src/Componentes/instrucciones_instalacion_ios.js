@@ -45,6 +45,7 @@ export class InstruccionesInstalIOS extends React.Component {
                     }} h1>1.- Descarga e instala la APP TestFlight en tu Iphone:
                    {"\n"}{"\n"}</Text>
 
+           
     <Text style={{color: 'blue'}}
               onPress={() => Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')}>
           Descarga aquí{"\n"}{"\n"}

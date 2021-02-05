@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Text, View, Image, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {Text, View, Image, FlatList, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
-import fondo from '../../assets/fondo2.jpg'; 
+import fondo from '../../assets/fondo.jpg'; 
 import ios from '../../assets/ios.png'; 
 import android from '../../assets/android.png'; 
 import logo from '../../assets/logo_blanco.png'; 
@@ -12,7 +12,7 @@ import { Card } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
-var opacity, id, id
+var opacity, id
 var num
 
 export class SplashScreen extends React.Component {
@@ -42,14 +42,39 @@ recuperarNumeros (id){
      || id[step]== "9")
          num = num +  id[step]
      
- 
+         
   }
 
-  //console.log(" num.length", num.length);
-  if(num.length < 4)
-  num = num + "0"
+  console.log(" num total", num.length);
 
-  return num
+  if(num.length >= 4){
+
+    num = num.slice(0,4)
+    return num
+
+  } 
+
+  if(num.length == 1){
+
+    num = num + 167
+    return num
+
+}
+
+  if(num.length == 2){
+
+    num = num + 19
+    return num}
+
+
+  if(num.length == 3){
+
+      num = num + 1
+      return num
+
+  }
+ 
+
 
 }
 
@@ -59,7 +84,10 @@ recuperarNumeros (id){
   id = Fire.getUid() 
   // console.log(id)
   num = this.recuperarNumeros (id)
-
+  
+  console.log(id)
+  console.log(num)
+ //console.log(num.length)
   
    
   return (
@@ -88,23 +116,32 @@ recuperarNumeros (id){
 
                 { /* CÓDIGO AGENTE*/}
 
-                  <View  style={{opacity:opacity, justifyContent:'center',width:wp('100%'),borderRadius:10, alignItems:'center', flex:0.8, marginTop:hp('3%'), alignContent:'center', textAlignVertical:'center'}}>
+                  <View  style={{opacity:opacity, justifyContent:'center',width:wp('100%'),borderRadius:10, alignItems:'center', flex:0.8, marginTop:hp('4%'), alignContent:'center', textAlignVertical:'center'}}>
                   
                  
-                  <Text 
-                      style={{justifyContent:'center',textAlign:'center', fontWeight:'bold', textAlignVertical:'center', alignContent:'center', fontSize:hp('4%'), width:wp('70%'), height: hp('8%'), 
-                              color: 'black',  marginBottom: hp('0%'),  marginTop:hp('0%'), paddingTop:hp('1.8%'),backgroundColor:'white'}} 
+                  <Text selectable={true} selectionColor='orange'
+                      style={{justifyContent:'center',textAlign:'center', fontWeight:'bold', textAlignVertical:'center', alignContent:'center', fontSize:hp('5%'), width:wp('40%'), height: hp('8%'), 
+                              color: 'black',  marginBottom: hp('0%'),  marginTop:hp('1%'), paddingTop:hp('1%'),backgroundColor:'white'}} 
                     
-                    >{num.slice(0,4)}
+                    >{num}
                       
                   </Text>
                
                 </View> 
                
-               
-                <View  style={{borderRadius:10, alignItems:'center', flex:1, flexDirection:"row",  marginTop:hp('2%')}}>
+                <View  style={{alignItems:'center', flex:0.3, marginTop:hp('0%')}}>
+                  <Text 
+                      style={{textAlign:'center',  fontSize:hp('2%'), width:wp('100%'), height: hp('5%'), 
+                              color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('3%'), padding:hp('1%')}} 
+                    
+                      > ⬇️  Instrucciones de descarga  ⬇️
+                      
+                  </Text>
+                  
+                </View>     
+                <View  style={{borderRadius:10, alignItems:'center', flex:1, flexDirection:"row",  marginTop:hp('6%')}}>
                 { /* Instrucciones de instalación de la APP IOS*/}
-                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center', marginRight: wp('0%')}}>
                              <TouchableOpacity 
                                                                                           
                                 onPress={() => this.props.navigation.navigate("Instalación IOS")}
@@ -122,10 +159,11 @@ recuperarNumeros (id){
                                               
                             </TouchableOpacity> 
         
-                         </View>
+                </View>
+             
 
                 { /* Instrucciones de instalación de la APP Android*/}
-                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                <View  style={{alignItems:'center', flex:1,  justifyContent:'center', marginLeft: wp('0%')}}>
                     <TouchableOpacity 
                                                                                 
                       onPress={() => this.props.navigation.navigate("Instalación Android")}
@@ -146,7 +184,18 @@ recuperarNumeros (id){
                 </View>
 
              
-                </View>   
+                </View>  
+                { /* ESTADOS DEL PROCESO DEL CLIENTE*/}
+                <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginBottom:hp('3%'), marginTop:hp('1%')}}>
+                  <Text 
+                      style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('5%'), 
+                              color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('1%'), padding:hp('1%')}} 
+                    
+                      onPress={() => this.props.navigation.navigate("Estados del proceso")}>Información sobre los diferentes estados del proceso
+                      
+                  </Text>
+                  
+                </View>  
 
                           
                 <View style={{alignItems: 'center', flexDirection:'column',flex:8, width:wp('100%'), height:hp('100%')}}>
@@ -188,54 +237,40 @@ recuperarNumeros (id){
                              data={this.state.list} 
                              initialNumToRender={100}
                              
-                             renderItem={({item, index, separators }) => {
+                             renderItem={({item, separators }) => {
 
-                              console.log("item", item.estado_cliente1)
-                              console.log("key", item.key)
-                              console.log("index", item.index)
+                              //console.log("item", item.estado_cliente1)
+                              //console.log("key", item.key)
+                              //console.log("index", item.index)
                              
                                                                                          
-                             if (num.slice(0,4) == item.codigo_agente) {
+                             if (num == item.codigo_agente) {
 
                          
                                return (
 
-                             <Card style={{alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('25%'),width:wp('84%'), flex:1}}> 
+                             <Card style={{alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('15%'),width:wp('84%'), flex:1}}> 
                       
                                                   
-                               <View style={{ backgroundColor:'#ECA831',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
-                                   <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
+                               <View style={{ backgroundColor:'#ECA831',width:wp('84%'), flex:0.6, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
+                                   <Text style={{fontWeight:'bold', fontSize:hp('2.5%'),  textAlign:'center'}}>{item.name}</Text> 
                                </View>  
-                               <View style={{ backgroundColor:'#9ECAFF',width:wp('84%'), flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
-                               <TouchableOpacity 
-                                    onShowUnderlay={separators.highlight}                                            
-                                    onPress={() => this.props.navigation.navigate("Estados")}
-                                    > 
+                               <View style={{ backgroundColor:'#9ECAFF',width:wp('84%'), flex:0.6, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                
-                                   <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>Estado del proceso</Text> 
+                               
+                                   <Text style={{fontWeight:'bold', fontSize:hp('1.7%'),  textAlign:'center'}}>Estado del proceso</Text> 
                             
-                               </TouchableOpacity> 
+                            
                                </View>     
-
-                               <View style={{textAlign:'left',height:hp('30%'), width:wp('100%'), paddingLeft:hp('4%'), paddingRight:hp('4%'), marginBottom:hp('0%'), flex:5, borderColor:'grey', borderWidth:1}}> 
-                                
-                                       
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente1} </Text> 
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente2} </Text> 
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente3} </Text>
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View> 
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente4} </Text> 
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente5} </Text> 
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente6} </Text> 
-                                         <View style={{borderBottomColor: 'black',borderBottomWidth: 1,}}></View>
-                                         <Text style={{textAlign:'left',color:'black', fontSize:hp('1.5%'), fontWeight:'bold'}}> {item.estado_cliente7} </Text> 
-                                
-                               </View>
+                               <View style={{ backgroundColor:'#fff',width:wp('84%'), flex:0.6, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                
+                               
+                               <Text style={{ fontSize:hp('2%'),  textAlign:'center'}}>{item.estado_cliente}</Text> 
+                        
+                        
+                           </View>   
+
+                                                           
                              
                              </Card> 
                                  )  
@@ -275,13 +310,8 @@ componentDidMount(){
         
                 key: child.key,
                 name:child.val().name,
-                estado_cliente1:child.val().estado_cliente1,
-                estado_cliente2:child.val().estado_cliente2,
-                estado_cliente3:child.val().estado_cliente3,
-                estado_cliente4:child.val().estado_cliente4,
-                estado_cliente5:child.val().estado_cliente5,
-                estado_cliente6:child.val().estado_cliente6,
-                estado_cliente7:child.val().estado_cliente7,
+                estado_cliente:child.val().estado_cliente,
+              
                 codigo_agente:child.val().codigo_agente 
        
         
