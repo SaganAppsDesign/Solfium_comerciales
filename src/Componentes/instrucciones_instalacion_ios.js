@@ -8,7 +8,6 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 
 
-
 export class InstruccionesInstalIOS extends React.Component {
 
  
@@ -47,9 +46,15 @@ export class InstruccionesInstalIOS extends React.Component {
 
            
     <Text style={{color: 'blue'}}
-              onPress={() => Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')}>
+       
+              onPress={() => {Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')
+                
+              
+              }}>
           Descarga aquí{"\n"}{"\n"}
     </Text>
+
+  
   
       <Text style={{ color: 'black',
                   fontSize: hp('1.8%'),

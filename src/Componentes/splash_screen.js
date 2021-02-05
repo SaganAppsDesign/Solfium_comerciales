@@ -265,7 +265,7 @@ recuperarNumeros (id){
                                <View style={{ backgroundColor:'#fff',width:wp('84%'), flex:0.6, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                
                                
-                               <Text style={{ fontSize:hp('2%'),  textAlign:'center'}}>{item.estado_cliente}</Text> 
+                               <Text style={{ fontSize:hp('1.5%'),  textAlign:'center'}}>{item.estado_cliente}</Text> 
                         
                         
                            </View>   
