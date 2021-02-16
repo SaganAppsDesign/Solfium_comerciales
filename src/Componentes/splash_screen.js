@@ -7,13 +7,13 @@ import android from '../../assets/android.png';
 import logo from '../../assets/logo_blanco.png'; 
 import Fire, {db} from '../../fire';
 import { Card } from 'native-base';
+import { codigoLetras } from './funcion_codigo_letras'
 
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 var opacity, id
-var num
 var codigo
 
 
@@ -51,11 +51,44 @@ recuperarNumeros (id){
   for (let step = 0; step < 28; step++) {
     
      if (id[step] == "0" || id[step]== "1" || id[step]== "2" || id[step]== "3" || id[step]== "4" || id[step]== "5" || id[step]== "6" || id[step]== "7" || id[step]== "8"
-     || id[step]== "9")
-         num = num +  id[step]
-         
-     
-         
+     || id[step]== "9"){
+
+        num = num +  id[step]
+     }
+    
+                  
+  }
+    //console.log('num final', num)
+    //return num
+
+    if(num.length == 0){
+
+      num = num + codigoLetras(id.slice(1,2)) + codigoLetras(id.slice(2,3)) + codigoLetras(id.slice(3,4))
+      
+      return num
+  
+  }  
+
+  if(num.length == 1){
+
+    num = num + codigoLetras(id.slice(1,2)) + codigoLetras(id.slice(2,3)) + codigoLetras(id.slice(3,4))
+    
+    return num
+
+}
+
+  if(num.length == 2){
+
+     num = num + codigoLetras(id.slice(2,3)) + codigoLetras(id.slice(3,4))
+    return num}
+
+
+  if(num.length == 3){
+
+      num = num +  codigoLetras(id.slice(3,4)) 
+      //console.log("id.slice(0,1)", typeof(id.slice(0,1)))
+      return num
+
   }
 
 
@@ -65,28 +98,10 @@ recuperarNumeros (id){
     return num
 
   } 
-
-  if(num.length == 1){
-
-    num = num + id.slice(0,3)
-    return num
-
-}
-
-  if(num.length == 2){
-
-     num = num + id.slice(0,2)
-    return num}
-
-
-  if(num.length == 3){
-
-      num = num +  id.slice(0,1)
-      return num
-
-  }
  
   
+
+  //console.log(this.recuperarNumeros (id[step]))
 
 }
 
@@ -94,7 +109,6 @@ recuperarNumeros (id){
 
  render() {
   
- 
    
   return (
 
@@ -144,7 +158,7 @@ recuperarNumeros (id){
 
                               id = Fire.getUid() 
                               codigo = this.recuperarNumeros (id)
-                              this.setState({codigo:codigo})
+                              this.setState({codigo:codigo.slice(0,4)})
                               this.darAltaCodigoBBDD ()
 
                              }
@@ -219,7 +233,7 @@ recuperarNumeros (id){
                 { /* ESTADOS DEL PROCESO DEL CLIENTE*/}
                 <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginBottom:hp('3%'), marginTop:hp('1%')}}>
                   <Text 
-                      style={{textAlign:'center',  fontSize:hp('1.9%'), width:wp('100%'), height: hp('5%'), 
+                      style={{textAlign:'center',  fontSize:hp('1.8%'), width:wp('100%'), height: hp('5%'), 
                               color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('1%'), padding:hp('1%')}} 
                     
                       onPress={() => this.props.navigation.navigate("Estados del proceso")}>Información sobre los diferentes estados del proceso
@@ -268,7 +282,7 @@ recuperarNumeros (id){
                              data={this.state.list} 
                              initialNumToRender={100}
                              
-                             renderItem={({item, separators }) => {
+                             renderItem={({item }) => {
 
                               //console.log("item", item.estado_cliente1)
                               //console.log("key", item.key)

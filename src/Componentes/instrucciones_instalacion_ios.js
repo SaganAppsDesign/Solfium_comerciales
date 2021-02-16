@@ -64,7 +64,7 @@ export class InstruccionesInstalIOS extends React.Component {
                   textAlign: 'left',
                   height: hp('8%'),
                   textAlign: 'left'
-                  }} h1>2.- Envía al correo "antonio.cabrera@soologic.com" el email 
+                  }} h1>2.- Envía al correo "info@solfium.com" el email 
                   asociado a tu Apple ID que puedes encontrar en "Configuración" de tu Iphone.{"\n"} {"\n"}</Text>
    
 
