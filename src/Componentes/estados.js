@@ -4,14 +4,9 @@ import 'react-native-gesture-handler';
 import backBtn from '../../assets/backBtn.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
-
-
-
 export class Estados extends React.Component {
 
  
-
   render() {
 	return (
 
@@ -60,40 +55,31 @@ export class Estados extends React.Component {
                 
                 </Text>
    </View>
-    {/* header */}              
+          
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.14,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
-
-                          <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate("Atrás")}
-                               > 
-                                                     
-                               <Image 
-                                
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image>
-
-                                      
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-
-                        
-        
-                               
-        
-                        </View>
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                    <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate("Atrás")}
+                      > 
+                                            
+                      <Image 
                       
+                      source={backBtn}
+                      style={{aspectRatio:1, height:hp('6%')}}
                       
-          {/* FIN header */}     
- 
+                      >    
+                      </Image>
+
+                            
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+            </View>
+
 
    </View>	
 
@@ -102,7 +88,6 @@ export class Estados extends React.Component {
    )}
 }
 
-// Later on in your styles..
 const styles = StyleSheet.create({
   
 
@@ -112,9 +97,7 @@ const styles = StyleSheet.create({
   	backgroundColor: '#F5D3AB',
     marginTop: "0%",
     alignItems:'center'},
-
   
-    
   
 })
 

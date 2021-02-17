@@ -58,8 +58,7 @@ recuperarNumeros (id){
     
                   
   }
-    //console.log('num final', num)
-    //return num
+
 
     if(num.length == 0){
 
@@ -86,7 +85,6 @@ recuperarNumeros (id){
   if(num.length == 3){
 
       num = num +  codigoLetras(id.slice(3,4)) 
-      //console.log("id.slice(0,1)", typeof(id.slice(0,1)))
       return num
 
   }
@@ -99,9 +97,6 @@ recuperarNumeros (id){
 
   } 
  
-  
-
-  //console.log(this.recuperarNumeros (id[step]))
 
 }
 
@@ -283,10 +278,6 @@ recuperarNumeros (id){
                              initialNumToRender={100}
                              
                              renderItem={({item }) => {
-
-                              //console.log("item", item.estado_cliente1)
-                              //console.log("key", item.key)
-                              //console.log("index", item.index)
                              
                                                                                          
                              if (this.state.codigo == item.codigo_agente) {
@@ -336,9 +327,9 @@ recuperarNumeros (id){
   </View>
 
 
-    </ImageOverlay> 
+</ImageOverlay> 
 
-  );
+  )
 }
 
 componentDidMount(){

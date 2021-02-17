@@ -119,41 +119,34 @@ export class InstruccionesInstalIOS extends React.Component {
  
   </Paragraph>
    </View>
-    {/* header */}              
+        
            {/*Botones*/}     
            <View style={{alignItems:'center', flex:0.14,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
                          
 
-                          <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate("Atrás")}
-                               > 
-                                                     
-                               <Image 
-                                
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image>
-
-                                      
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
-
-                        
-        
-                               
-        
-                        </View>
+                <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+                    <TouchableOpacity 
+                                                                                
+                      onPress={() => this.props.navigation.navigate("Atrás")}
+                      > 
+                                            
+                      <Image 
                       
+                      source={backBtn}
+                      style={{aspectRatio:1, height:hp('6%')}}
                       
-          {/* FIN header */}     
- 
+                      >    
+                      </Image>
 
+                            
+                                    
+                  </TouchableOpacity> 
+
+                </View>
+        
+        
+            </View>
+       
    </View>	
 
 
@@ -161,7 +154,7 @@ export class InstruccionesInstalIOS extends React.Component {
    )}
 }
 
-// Later on in your styles..
+
 const styles = StyleSheet.create({
   
 
@@ -171,9 +164,6 @@ const styles = StyleSheet.create({
   	backgroundColor: '#fff',
     marginTop: "0%",
     alignItems:'center'},
-
-  
-    
   
 })
 

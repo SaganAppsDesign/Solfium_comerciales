@@ -2,17 +2,13 @@ import { StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
 import * as React from 'react';
 import 'react-native-gesture-handler';
 import backBtn from '../../assets/backBtn.png'; 
-import { Paragraph } from 'react-native-paper';
 import solfium from '../../assets/solfium.png'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
-
 
 
 export class InstruccionesInstalAndroid extends React.Component {
 
  
-
   render() {
 	return (
 
@@ -20,7 +16,7 @@ export class InstruccionesInstalAndroid extends React.Component {
 
   <View style={styles.container}>	
   
-   <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
+  <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
 
   <Text style={{ color: 'black',
                     fontSize: hp('1.8%'),
@@ -84,40 +80,33 @@ export class InstruccionesInstalAndroid extends React.Component {
                   muy pronto la nueva versión estará en el App Store simplificando todo este proceso y al alcance de todos...</Text>
    
    </View>
-{/* header */}              
-           {/*Botones*/}     
-           <View style={{alignItems:'center', flex:0.1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
-                         
+          
+  {/*Botón*/}     
+  <View style={{alignItems:'center', flex:0.1,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
+                
 
-                          <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
-                             <TouchableOpacity 
-                                                                                          
-                                onPress={() => this.props.navigation.navigate("Atrás")}
-                               > 
-                                                     
-                               <Image 
-                                
-                                source={backBtn}
-                                style={{aspectRatio:1, height:hp('6%')}}
-                                
-                                >    
-                                </Image>
+        <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
+            <TouchableOpacity 
+                                                                        
+              onPress={() => this.props.navigation.navigate("Atrás")}
+              > 
+                                    
+              <Image 
+              
+              source={backBtn}
+              style={{aspectRatio:1, height:hp('6%')}}
+              
+              >    
+              </Image>
 
-                                      
-                                              
-                            </TouchableOpacity> 
-        
-                         </View>
+                            
+          </TouchableOpacity> 
 
-                        
-        
-                               
-        
-                        </View>
-                      
-                      
-          {/* FIN header */}     
- 
+        </View>
+          
+
+   </View>
+    
 
    </View>	
 
@@ -126,7 +115,6 @@ export class InstruccionesInstalAndroid extends React.Component {
    )}
 }
 
-// Later on in your styles..
 const styles = StyleSheet.create({
   
 
@@ -146,11 +134,8 @@ const styles = StyleSheet.create({
     width:'100%'
    
   },
+   
   
-    
-    
-    
-  
-});
+})
 
 
