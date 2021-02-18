@@ -162,9 +162,9 @@ recuperarNumeros (id){
                               > 
                                                         
                               <Text
-                                    style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}
+                                    style={{fontWeight:'bold', fontSize:hp('2.8%'),  textAlign:'center', borderWidth:hp('0.1%'), padding:hp('1%')}}
                                                                       
-                                    >Carga tu código aquí</Text>
+                                    >Pulsar aquí para ver código</Text>
 
                        </TouchableOpacity>
                   </View>

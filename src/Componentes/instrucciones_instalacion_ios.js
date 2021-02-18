@@ -19,7 +19,7 @@ export class InstruccionesInstalIOS extends React.Component {
 
   <View style={styles.container}>	
   
-   <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
+  <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:5}}>	
   <Paragraph selectable={true} selectionColor='orange' style={{textAlign: 'left'}}>
 
       <Text style={{ color: 'black',
@@ -45,13 +45,23 @@ export class InstruccionesInstalIOS extends React.Component {
                    {"\n"}{"\n"}</Text>
 
            
-    <Text style={{color: 'blue'}}
+    <Text style={{color: 'blue',fontSize: hp('1.7%')}}
        
               onPress={() => {Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')
                 
               
               }}>
           Descarga aquí{"\n"}{"\n"}
+
+      
+    </Text>
+
+    <Text style={{color: 'black',fontSize: hp('1.7%')}}
+       
+             >
+          https://apps.apple.com/es/app/testflight/id899247664{"\n"}{"\n"}
+
+      
     </Text>
 
   
@@ -94,7 +104,7 @@ export class InstruccionesInstalIOS extends React.Component {
                 <Image 
                   
                   source={solfium}
-                  style={{aspectRatio:1, height:hp('7%'), marginTop:hp('0%'), marginLeft:wp('36%')}}
+                  style={{aspectRatio:1, height:hp('7%'), marginTop:hp('-6%'), marginLeft:wp('36%'), marginBottom:hp('1%')}}
                   
                   >    
                 </Image>  
@@ -107,21 +117,21 @@ export class InstruccionesInstalIOS extends React.Component {
                   marginTop:hp('0%'),
                   padding: hp('0%'),
                   textAlign: 'center',
-                  height: hp('10%'),
+                  height: hp('100%'),
                   textAlign: 'center',
                   fontWeight: 'bold',
                   justifyContent:'center',
               
-                  }} h1>{"\n"}{"\n"}{"\n"}Felicidades por ser parte de este lanzamiento único y exclusivo, 
+                  }} h1>{"\n"}Felicidades por ser parte de este lanzamiento único y exclusivo, 
                   muy pronto la nueva versión estará en el App Store simplificando todo este 
-                  proceso y al alcance de todos...{"\n"}{"\n"}{"\n"}</Text>
+                  proceso y al alcance de todos...</Text>
    
  
   </Paragraph>
    </View>
         
            {/*Botones*/}     
-           <View style={{alignItems:'center', flex:0.14,  justifyContent:'center', flexDirection:'row', marginBottom:hp('0%'),marginTop:hp('0%')}}>  
+           <View style={{alignItems:'center', flex:0.14,  justifyContent:'center', flexDirection:'row', marginBottom:hp('3%'),marginTop:hp('0%')}}>  
                          
 
                 <View  style={{ alignItems:'center', flex:1,  justifyContent:'center'}}>
