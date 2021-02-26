@@ -42,30 +42,13 @@ export class InstruccionesInstalAndroid extends React.Component {
                     de aplicaciones de fuentes alternativas" y pulsamos "Aceptar", si es que aparece algún cuadro que pida tu confirmación.
                    {"\n"}{"\n"}{"\n"}{"\n"}</Text>
   
-      <Text style={{ color: 'blue',
-                  fontSize: hp('1.8%'),
-                  marginHorizontal: wp('0%'),
-                  marginTop:hp('0%'),
-                  padding: hp('0%'),
-                  textAlign: 'left',
-                  height: hp('8%'),
-                  textAlign: 'left'
-                  }}
-                  onPress={() => {Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')}}>
-                    
-                    2.- Enlace de descarga de APK.{"\n"} {"\n"}
+      <Text selectable={true} style={{color: 'black',fontSize: hp('1.7%')}} > 2.- Descarga en el siguiente enlace tu app Solfium:{"\n"}{"\n"}
                    
-      </Text>
-      <Text style={{color: 'black',fontSize: hp('1.7%')}}
-       
-             >
-          https://apps.apple.com/es/app/testflight/id899247664{"\n"}{"\n"}
-
+                https://www.dropbox.com/s/pnlxodtvi4r69at/solfium-sell.apk?dl=0{"\n"}{"\n"}
       
-    </Text>
-   
-      
-      <View style={{alignItems:'center', justifyContent:'center'}}>  
+     </Text>
+        
+     <View style={{alignItems:'center', justifyContent:'center'}}>  
                 
                 <Image 
                   
