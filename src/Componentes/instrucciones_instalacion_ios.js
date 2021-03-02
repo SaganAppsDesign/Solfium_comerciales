@@ -19,7 +19,7 @@ export class InstruccionesInstalIOS extends React.Component {
 
   <View style={styles.container}>	
   
-  <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:5}}>	
+  <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:6}}>	
   <Paragraph selectable={true} selectionColor='orange' style={{textAlign: 'left'}}>
 
       <Text style={{ color: 'black',
@@ -45,24 +45,24 @@ export class InstruccionesInstalIOS extends React.Component {
                    {"\n"}{"\n"}</Text>
 
            
-    <Text style={{color: 'blue',fontSize: hp('1.7%')}}
-       
-              onPress={() => {Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')
-                
-              
-              }}>
-          Descarga aquí{"\n"}{"\n"}
+      <Text style={{color: 'blue',fontSize: hp('1.7%')}}
+                    
+                    onPress={() => {Linking.openURL('https://apps.apple.com/es/app/testflight/id899247664')
+                            
+                          
+                          }}>
+                      Descarga directa aquí{"\n"}{"\n"}
 
-      
-    </Text>
 
-    <Text style={{color: 'black',fontSize: hp('1.7%')}}
-       
-             >
-          https://apps.apple.com/es/app/testflight/id899247664{"\n"}{"\n"}
+      </Text>
 
-      
-    </Text>
+      <Text selectable={true} style={{fontWeight:'bold', color: 'black',fontSize: hp('1.7%')}}
+
+            >
+        https://apps.apple.com/es/app/testflight/id899247664{"\n"}{"\n"}
+
+
+      </Text>
 
   
   
@@ -104,7 +104,7 @@ export class InstruccionesInstalIOS extends React.Component {
                 <Image 
                   
                   source={solfium}
-                  style={{aspectRatio:1, height:hp('7%'), marginTop:hp('-6%'), marginLeft:wp('36%'), marginBottom:hp('1%')}}
+                  style={{aspectRatio:1, height:hp('7%'), marginTop:hp('0%'), marginLeft:wp('36%'), marginBottom:hp('5%')}}
                   
                   >    
                 </Image>  
